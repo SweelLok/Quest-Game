@@ -10,29 +10,29 @@
         <div class="profile-card">
             <img src="{{ profile.photo }}" alt="Profile Photo" class="profile-photo">
             <h1>{{ profile.username }}</h1>
-            <p class="points">Очки: {{ profile.points }}</p>
+            <p class="points">Points: {{ profile.points }}</p>
 
-            <h2>Информация о профиле</h2>
+            <h2>Profile Information</h2>
             <p><strong>Email:</strong> {{ profile.gmail }}</p>
-            <p><strong>Описание:</strong> {{ profile.prof_description }}</p>
+            <p><strong>Description:</strong> {{ profile.prof_description }}</p>
 
-            <h3>Выполненные квесты:</h3>
+            <h3>Completed Quests:</h3>
             {% if completed_quests %}
                 <ul class="quest-list">
                     {% for quest in completed_quests %}
                         <li>
-                            <strong>{{ quest['name'] }}</strong> - {{ quest['points'] }} очков
+                            <strong>{{ quest['name'] }}</strong> - {{ quest['points'] }} points
                             <br>
-                            <span class="completion-date">Завершено: {{ quest['completion_date'] }}</span>
+                            <span class="completion-date">Completed: {{ quest['completion_date'] }}</span>
                         </li>
                     {% endfor %}
                 </ul>
             {% else %}
-                <p>Квесты ещё не выполнены.</p>
+                <p>Quests are not completed yet.</p>
             {% endif %}
 
             <div class="button-group">
-                <a href="{{ url_for('get_edit_profile_page') }}" class="btn edit">Редактировать профиль</a>
+                <a href="{{ url_for('get_edit_profile_page') }}" class="btn edit">Edit Profile</a>
             </div>
 
         </div>

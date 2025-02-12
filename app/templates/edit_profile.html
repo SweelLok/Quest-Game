@@ -28,8 +28,8 @@
 
             {% if is_owner %}
                 <form action="{{ url_for('delete_account') }}" method="post"
-                    onsubmit="return confirm('Вы уверены, что хотите удалить свой аккаунт? Это действие необратимо.');">
-                    <button type="submit" class="btn delete">Удалить аккаунт</button>
+                    onsubmit="return confirm('Are you sure you want to delete your account? This action is irreversible.');">
+                    <button type="submit" class="btn delete">Delete Account</button>
                 </form>
             {% endif %}
             
