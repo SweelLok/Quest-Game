@@ -21,7 +21,6 @@
                 </p>
                 <p class="points">Points: {{ quest.points }}</p>
                 {% if current_user.username == 'admin' %}
-                    <p class="card-text">Answer: {{ quest.answer }}</p>
                     <div class="admin-controls">
                         <a href="{{ url_for('get_quest', quest_id=quest.quest_id) }}" class="btn btn-primary start-quest-btn">▶️ Start Quest</a>
                         <form action="{{ url_for('edit_quest_form', quest_id=quest.quest_id) }}" method="GET">
