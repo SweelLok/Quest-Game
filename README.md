@@ -1,64 +1,62 @@
-Quest Game Web Application
+# Quest Game Web Application
 
 A web-based quest game platform where users can complete challenges, earn points, and track their progress. The application features user authentication, email verification, profile management, and an admin panel for quest management.
-🌟 Features
 
-    User Authentication System
-        Registration with email verification
-        Secure login/logout functionality
-        Gmail-based authentication
-        Password protection
+## 🌟 Features
 
-    Quest Management
-        Create and manage quests
-        Edit quests (only admin)
-        Complete quests to earn points
-        Track completion status
-        View quest descriptions and requirements
+- **User Authentication System**
+  - Registration with email verification
+  - Secure login/logout functionality
+  - Gmail-based authentication
+  - Password protection
 
-    Profile System
-        Customizable user profiles
-        Track earned points
-        View completed quests
-        Profile photo and description
+- **Quest Management**
+  - Create and manage quests
+  - Edit quests (only admin)
+  - Complete quests to earn points
+  - Track completion status
+  - View quest descriptions and requirements
 
-    Feedback System
-        Submit feedback about the platform
-        Rate your experience
-        View other users' feedback
+- **Profile System**
+  - Customizable user profiles
+  - Track earned points
+  - View completed quests
+  - Profile photo and description
 
-    Admin Panel
-        Manage quests (create, edit, delete)
-        Monitor platform activity
+- **Feedback System**
+  - Submit feedback about the platform
+  - Rate your experience
+  - View other users' feedback
 
-🚀 Live Demo
+- **Admin Panel**
+  - Manage quests (create, edit, delete)
+  - Monitor platform activity
 
-The application is hosted and accessible at: http://116.203.195.165:30000/menu/
-🛠 Technologies Used
+## 🚀 Live Demo
 
-    Hosting
+The application is hosted and accessible at: `http://116.203.195.165:30000/menu/`
 
-Backend
+## 🛠 Technologies Used
+- Hosting
 
-    Python 3.x
-    Flask (Web Framework)
-    SQLite3 (Database)
-    Flask-Login (User Session Management)
-    Flask-WTF (Form Handling)
-    smtplib (Email Services)
+### Backend
+- Python 3.x
+- Flask (Web Framework)
+- SQLite3 (Database)
+- Flask-Login (User Session Management)
+- Flask-WTF (Form Handling)
+- smtplib (Email Services)
 
-Frontend
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap 5
+- Bulma1.0.2
 
-    HTML5
-    CSS3
-    JavaScript
-    Bootstrap 5
-    Bulma1.0.2
-
-📦 Required Libraries
-
-    Flask
-    Flask-login
-    smtplib
-    wtforms
-    flask_wtf
+## 📦 Required Libraries
+- Flask
+- Flask-login
+- smtplib
+- wtforms
+- flask_wtf
