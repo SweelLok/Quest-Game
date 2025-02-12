@@ -4,6 +4,7 @@ from app import app
 from app.forms import FeedbackForm
 from connection import get_db_connection
 
+
 @app.get("/feedback/")
 def feedback_page():
     form = FeedbackForm()

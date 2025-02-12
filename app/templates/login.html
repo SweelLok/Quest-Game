@@ -9,43 +9,43 @@
 </head>
 <body>
     
-<div class="form-container">
-    <h2 class="title">Login</h2>
-    {% if error_message %}
-    <div class="notification is-danger">
-        {{ error_message }}
+    <div class="form-container">
+        <h2 class="title">Login</h2>
+        {% if error_message %}
+        <div class="notification is-danger">
+            {{ error_message }}
+        </div>
+        {% endif %}
+        <form method="POST">
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control has-icons-left">
+                    <input class="input" type="text" placeholder="John Doe" name="username" required>
+                    <span class="icon is-small is-left">👤</span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left">
+                    <input class="input" type="email" placeholder="abc123@gmail.com" name="gmail" required>
+                    <span class="icon is-small is-left">📧</span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control has-icons-left">
+                    <input id="password" class="input" type="password" placeholder="Enter your password" name="password" required>
+                    <span class="icon is-small is-left">🔒</span>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-link">Sign in</button>
+                </div>
+            </div>
+            <p class="help-text">Don't have an account? <a href="{{ url_for('get_signup') }}">Sign up</a></p>
+        </form>
     </div>
-    {% endif %}
-    <form method="POST">
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control has-icons-left">
-                <input class="input" type="text" placeholder="John Doe" name="username" required>
-                <span class="icon is-small is-left">👤</span>
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control has-icons-left">
-                <input class="input" type="email" placeholder="abc123@gmail.com" name="gmail" required>
-                <span class="icon is-small is-left">📧</span>
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">Password</label>
-            <div class="control has-icons-left">
-                <input id="password" class="input" type="password" placeholder="Enter your password" name="password" required>
-                <span class="icon is-small is-left">🔒</span>
-            </div>
-        </div>
-        <div class="field">
-            <div class="control">
-                <button class="button is-link">Sign in</button>
-            </div>
-        </div>
-        <p class="help-text">Don't have an account? <a href="{{ url_for('get_signup') }}">Sign up</a></p>
-    </form>
-</div>
 
 </body>
 </html>
