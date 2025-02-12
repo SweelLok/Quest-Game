@@ -29,16 +29,4 @@
         </form>
     </div>
 
-    <div class="quest-list">
-        <h2>Existing Quests</h2>
-        {% for quest in quests %}
-        <div class="quest-item">
-            <h3>Name: {{ quest['name'] }}</h3>
-            <p><strong>Description:</strong> {{ quest['description'] }}</p>
-            <p><strong>Answer:</strong> {{ quest['answer'] }}</p>
-            <p><strong>Points:</strong> {{ quest['points'] }}</p>
-        </div>
-        {% endfor %}
-    </div>
-
 {% endblock content %}

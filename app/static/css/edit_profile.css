@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	padding-top: 80px;
 	min-height: 100vh;
-	background: url('../photos/log_back.png') no-repeat center center fixed;
+	background: url('../photos/sig_back.png') no-repeat center center fixed;
 	background-size: cover;
 	font-family: Arial, sans-serif;
 }

@@ -19,7 +19,7 @@
             {% if quest.is_completed %}
                 <button class="btn btn-success" disabled>Completed</button>
             {% else %}
-                <a href="{{ url_for('get_quest', quest_id=quest.quest_id) }}" class="btn btn-primary">Start Quest</a>
+                <a href="{{ url_for('get_quest', quest_id=quest.quest_id) }}" class="btn btn-primary">▶️ Start Quest</a>
             {% endif %}
         </div>
         {% endfor %}

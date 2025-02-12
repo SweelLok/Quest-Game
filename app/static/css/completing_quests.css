@@ -3,7 +3,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	background: url('../static/photos/background.png') no-repeat center center fixed;
+	background: url('../photos/log_back.png') no-repeat center center fixed;
 	background-size: cover;
 	font-family: 'Arial', sans-serif;
 	margin: 0;
