@@ -60,3 +60,4 @@ The application is hosted and accessible at: `http://116.203.195.165:30000/menu/
 - smtplib
 - wtforms
 - flask_wtf
+- flask-compress
