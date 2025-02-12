@@ -34,7 +34,7 @@ A web-based quest game platform where users can complete challenges, earn points
 
 ## 🚀 Live Demo
 
-The application is hosted and accessible at: `http://116.203.195.165:30000/menu/`
+The application is hosted and accessible at: `http://116.203.195.165:30000/`
 
 ## 🛠 Technologies Used
 - Hosting
@@ -60,3 +60,4 @@ The application is hosted and accessible at: `http://116.203.195.165:30000/menu/
 - smtplib
 - wtforms
 - flask_wtf
+- flask-compress
