@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_profile.css') }}">
+{% endblock %}
+
+{% block content %}
+
+	<div class="profile-container">
+        <h1 class="title">Edit Profile</h1>
+
+        <form action="{{ url_for('post_edit_profile_page') }}" method="POST" enctype="multipart/form-data">
+            <img src="{{ profile.photo }}" alt="Current Profile Photo" class="profile-photo">
+            <input type="url" id="photo" name="photo" class="input-field" 
+                   placeholder="Enter photo URL" value="{{ profile.photo }}" required>
+
+            <input type="text" id="username" name="username" class="input-field" 
+                   placeholder="Enter username" value="{{ profile.username }}" 
+                   minlength="3" maxlength="50" required>
+
+            <input type="email" id="gmail" name="gmail" class="input-field" 
+                   placeholder="Enter email" value="{{ profile.gmail }}" required>
+
+            <textarea id="prof_description" name="prof_description" class="textarea" 
+                      placeholder="Tell us about yourself" required>{{ profile.prof_description }}</textarea>
+
+            <button type="submit" class="submit-btn">Save Changes</button>
+
+            {% if is_owner %}
+                <form action="{{ url_for('delete_account') }}" method="post"
+                    onsubmit="return confirm('Вы уверены, что хотите удалить свой аккаунт? Это действие необратимо.');">
+                    <button type="submit" class="btn delete">Удалить аккаунт</button>
+                </form>
+            {% endif %}
+            
+        </form>
+
+        <a href="{{ url_for('get_profile_page') }}" class="back-link">Back to Profile</a>
+    </div>
+
+{% endblock content %}

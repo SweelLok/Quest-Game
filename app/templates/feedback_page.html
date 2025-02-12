@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+{% endblock %}
+
+{% block content %}
+
+	<div class="feedback-container">
+		<h1 class="title">Feedback</h1>
+
+		<form method="POST" action="{{ url_for('add_feedback') }}" class="feedback-form">
+				{{ form.csrf_token }}
+
+				<label class="label">Your Feedback</label>
+				{{ form.text(class="textarea", placeholder="Write your feedback...") }}
+
+				<label class="label">Rating</label>
+				{{ form.rating(class="rating", placeholder="Rate from 1 to 5") }}
+
+				<button class="submit-btn" type="submit">Submit Feedback</button>
+		</form>
+
+		<div class="feedback-list">
+				{% for feedback in feedbacks %}
+				<div class="feedback-card">
+						<p class="feedback-text">{{ feedback['text'] }}</p>
+						<p class="feedback-rating">
+								{% if feedback['rating'] == 1 %}
+										<span class="tag negative">Negative</span>
+								{% else %}
+										<span class="tag positive">Positive</span>
+								{% endif %}
+						</p>
+				</div>
+				{% endfor %}
+		</div>
+	</div>
+
+{% endblock content %}

@@ -1,0 +1,106 @@
+body {
+	display: block;
+	background: url('../photos/sig_back.png') no-repeat center center fixed;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	min-height: 100vh;
+}
+
+.feedback-container {
+	background: white;
+	padding: 2rem;
+	border-radius: 10px;
+	width: 400px;
+	text-align: center;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+	margin: 80px auto 20px;
+}
+
+.title {
+	color: #333;
+	margin-bottom: 1rem;
+	font-size: 1.8rem;
+}
+
+.textarea, .rating {
+	width: 100%;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 1rem;
+	resize: none;
+}
+
+.textarea::placeholder, .rating::placeholder {
+	font-weight: bold;
+	color: #888;
+}
+
+.submit-btn {
+	width: 100%;
+	padding: 10px;
+	background: #007BFF;
+	border: none;
+	color: white;
+	font-size: 1rem;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.submit-btn:hover {
+	background: #0056b3;
+}
+
+.feedback-list {
+	margin-top: 20px;
+	text-align: left;
+}
+
+.feedback-card {
+	background: #f8f9fa;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	margin-bottom: 10px;
+}
+
+.feedback-text {
+	color: #333;
+	font-size: 1rem;
+	margin-bottom: 5px;
+}
+
+.feedback-rating {
+	font-size: 0.9rem;
+}
+
+.tag {
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+
+.positive {
+	background: #28a745;
+	color: white;
+}
+
+.negative {
+	background: #dc3545;
+	color: white;
+}
+
+@media (max-width: 480px) {
+	.feedback-container {
+		width: 90%;
+		padding: 1rem;
+	}
+	
+	.title {
+		font-size: 1.5rem;
+	}
+}

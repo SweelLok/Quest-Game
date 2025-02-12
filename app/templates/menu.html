@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="menu-container">
+        <h1>Available Quests</h1>
+    </div>
+
+    <div class="quest-grid">
+        {% for quest in quests %}
+        <div class="card">
+            <h5 class="card-title">{{ quest.name }}</h5>
+            <p class="card-text">{{ quest.description[:100] }}{% if quest.description|length > 100 %}...{% endif %}</p>
+            <p class="points">Points: {{ quest.points }}</p>
+            {% if quest.is_completed %}
+                <button class="btn btn-success" disabled>Completed</button>
+            {% else %}
+                <a href="{{ url_for('get_quest', quest_id=quest.quest_id) }}" class="btn btn-primary">Start Quest</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="add-quest-container">
+        <a href="{{ url_for('get_add_quests') }}" class="btn btn-success btn-lg">Add Quests</a>
+    </div>
+
+{% endblock content %}
