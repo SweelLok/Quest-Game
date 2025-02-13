@@ -55,7 +55,7 @@ def post_login():
         return render_template("login.html", error_message="Please verify your email before logging in")
         
     user_obj = User(user_id=user[0], username=user[1], gmail=user[2], password=user[3], email_verified=user[4])
-    login_user(user_obj)
+    login_user(user_obj, remember=True)
     return redirect(url_for("get_menu_page"))
 
 
