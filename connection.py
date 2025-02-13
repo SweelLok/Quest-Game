@@ -58,9 +58,9 @@ def create_profile_table():
             CREATE TABLE IF NOT EXISTS profile (
             profile_id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
             user_id INTEGER NOT NULL UNIQUE,
-            photo TEXT NOT NULL,
-            prof_description TEXT NOT NULL,
-            points INTEGER NOT NULL,
+            photo TEXT,
+            prof_description TEXT,
+            points INTEGER NOT NULL DEFAULT 0,
             FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE);""")
         conn.commit()
     except sqlite3.Error as e:

@@ -1,5 +1,6 @@
-from flask import render_template, redirect, url_for, request
-from flask_login import current_user, login_required
+from flask import render_template, redirect, url_for, request, flash
+from flask_login import current_user, login_required, logout_user
+import sqlite3
 
 from app import app
 from connection import get_db_connection
@@ -76,18 +77,30 @@ def post_edit_profile_page():
 	return redirect(url_for("get_profile_page"))
 
 
-@app.post("/delete_account/")
+@app.route("/delete_account/", methods=['POST'])
 @login_required
 def delete_account():
-	user_id = current_user.user_id
-	conn = get_db_connection()
-	cursor = conn.cursor()
-	cursor.execute("DELETE FROM completed_quests WHERE user_id = ?", (user_id,))
-	cursor.execute("DELETE FROM profile WHERE user_id = ?", (user_id,))
-	cursor.execute("DELETE FROM users WHERE user_id = ?", (user_id,))
-	conn.commit()
-	conn.close()
-	from flask_login import logout_user
-	logout_user()
-	
-	return redirect(url_for("get_login"))
+	try:
+		user_id = current_user.user_id
+		conn = get_db_connection()
+		cursor = conn.cursor()
+		
+		# Вимкнення перевірки зовнішніх ключів для безпечного видалення
+		cursor.execute("PRAGMA foreign_keys = ON;")
+		
+		# Видалення користувача (каскадне видалення спрацює автоматично)
+		cursor.execute("DELETE FROM users WHERE user_id = ?", (user_id,))
+		
+		conn.commit()
+		logout_user()
+		flash('Your account has been successfully deleted.', 'success')
+		return redirect(url_for('get_login'))
+		
+	except Exception as e:
+		print(f"Error deleting account: {e}")
+		flash('An error occurred while deleting your account.', 'error')
+		return redirect(url_for('get_edit_profile_page'))
+		
+	finally:
+		if 'conn' in locals():
+			conn.close()

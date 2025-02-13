@@ -9,7 +9,7 @@
 	<div class="profile-container">
         <h1 class="title">Edit Profile</h1>
 
-        <form action="{{ url_for('post_edit_profile_page') }}" method="POST" enctype="multipart/form-data">
+        <form method="POST" action="{{ url_for('post_edit_profile_page') }}" id="editProfileForm" enctype="multipart/form-data">
             <img src="{{ profile.photo }}" alt="Current Profile Photo" class="profile-photo">
             <input type="url" id="photo" name="photo" class="input-field" 
                    placeholder="Enter photo URL" value="{{ profile.photo }}" required>
@@ -23,16 +23,15 @@
 
             <textarea id="prof_description" name="prof_description" class="textarea" 
                       placeholder="Tell us about yourself" required>{{ profile.prof_description }}</textarea>
+            
 
             <button type="submit" class="submit-btn">Save Changes</button>
+        </form>
 
-            {% if is_owner %}
-                <form action="{{ url_for('delete_account') }}" method="post"
-                    onsubmit="return confirm('Are you sure you want to delete your account? This action is irreversible.');">
-                    <button type="submit" class="btn delete">Delete Account</button>
-                </form>
-            {% endif %}
-            
+        <form method="POST" action="{{ url_for('delete_account') }}" id="deleteAccountForm">
+            <button type="submit" class="delete btn" onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+                Delete Account
+            </button>
         </form>
 
         <a href="{{ url_for('get_profile_page') }}" class="back-link">Back to Profile</a>
