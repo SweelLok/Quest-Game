@@ -105,9 +105,41 @@ def create_feedback_table():
         conn.close()
 
 
+def create_registration_log_table():
+    try:
+        conn = get_db_connection()
+        curs = conn.cursor()
+        curs.execute("""
+            CREATE TABLE IF NOT EXISTS registration_log (
+            log_id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+            username TEXT NOT NULL,
+            gmail TEXT NOT NULL,
+            registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);""")
+        conn.commit()
+    except sqlite3.Error as e:
+        print(f"Error: {e}")
+    finally:
+        conn.close()
+
+
+def log_registration(username, gmail):
+    try:
+        conn = get_db_connection()
+        curs = conn.cursor()
+        curs.execute("""
+            INSERT INTO registration_log (username, gmail)
+            VALUES (?, ?)""", (username, gmail))
+        conn.commit()
+    except sqlite3.Error as e:
+        print(f"Error logging registration: {e}")
+    finally:
+        conn.close()
+
+
 def create_tables():
     create_user_table()
     create_quests_table()
     create_profile_table()
     create_completed_quests_table()
     create_feedback_table()
+    create_registration_log_table()

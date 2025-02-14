@@ -10,9 +10,10 @@ from connection import get_db_connection
 @app.get("/")
 def get_start():
     if current_user.is_authenticated:
+        if not current_user.email_verified:
+            return redirect(url_for("get_verification"))
         return redirect(url_for("get_menu_page"))
-    else:
-        return redirect(url_for("get_signup"))
+    return redirect(url_for("get_login"))
     
 
 @app.get("/menu/")

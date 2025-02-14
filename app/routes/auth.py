@@ -5,7 +5,7 @@ import random
 from flask import render_template, request, url_for, redirect, session
 from flask_login import login_user, login_required, logout_user, current_user
 
-from connection import get_db_connection
+from connection import get_db_connection, log_registration
 from app import app, login_manager
 from ..models import User
 
@@ -104,6 +104,9 @@ def post_signup():
                        VALUES (?, ?, ?, 0)""", 
                     (user_id, "", ""))
         conn.commit()
+        
+        # Log the registration
+        log_registration(username, gmail)
         
         user = User(user_id=user_id, username=username, gmail=gmail, password=password, email_verified=False)
         login_user(user)
