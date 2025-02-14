@@ -34,7 +34,7 @@ A web-based quest game platform where users can complete challenges, earn points
 
 ## 🚀 Live Demo
 
-The application is hosted and accessible at: `http://116.203.195.165:30000/`
+The application is hosted and accessible at: `http://116.203.195.165:21871/menu/`
 
 ## 🛠 Technologies Used
 - Hosting
